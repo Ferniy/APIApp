@@ -5,7 +5,6 @@ import com.example.ProjectX.entity.ClothesEntity;
 public class Clothes {
     private String clothesType;
     private String color;
-    private String name;
     private String picture;
     private Integer rating;
     private Boolean ironed;
@@ -15,7 +14,6 @@ public class Clothes {
         Clothes clothes = new Clothes();
         clothes.clothesType = clothesEntity.getClothesType();
         clothes.color = clothesEntity.getColor();
-        clothes.name = clothesEntity.getName();
         clothes.picture = clothesEntity.getPicture();
         clothes.rating = clothesEntity.getRating();
         clothes.ironed = clothesEntity.getIroned();
@@ -37,14 +35,6 @@ public class Clothes {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPicture() {

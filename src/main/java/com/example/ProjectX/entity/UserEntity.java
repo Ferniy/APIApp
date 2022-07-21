@@ -6,7 +6,9 @@ import javax.persistence.*;
 @Table(name = "users")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator")
+    @SequenceGenerator(name="user_generator", sequenceName = "user_seq", allocationSize=50)
+    @Column(name = "id", updatable = false, nullable = false)
     private Integer id;
     @Column(name = "username")
     private String username;

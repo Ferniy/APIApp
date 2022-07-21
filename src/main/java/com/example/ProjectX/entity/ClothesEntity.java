@@ -6,7 +6,9 @@ import javax.persistence.*;
 @Table(name = "clothes")
 public class ClothesEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clothes_generator")
+	@SequenceGenerator(name="clothes_generator", sequenceName = "clothes_seq", allocationSize=50)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Integer id;
 	@Column(name = "userId")
 	private Integer userId;
@@ -14,8 +16,6 @@ public class ClothesEntity {
 	private String clothesType;
 	@Column(name = "color")
 	private String color;
-	@Column(name = "name")
-	private String name;
 	@Column(name = "picture")
 	private String picture;
 	@Column(name = "rating")
@@ -56,14 +56,6 @@ public class ClothesEntity {
 
 	public void setColor(String color) {
 		this.color = color;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getPicture() {
